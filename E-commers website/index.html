@@ -1,0 +1,98 @@
+<!doctype html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body onload="displayCard(cards);">
+    <header>
+        <input type="text" placeholder="What are you looking for">
+        <input type="text" placeholder="Category">
+        <input type="text" placeholder="Location">
+        <button>Search Now</button>
+    </header>
+    
+        <div class="heading">
+            <h3>Result's For <span id="result"></span> </h3>
+            <p id="date"><span id="count"></span> Results on <span id="ondate"></span> </p>
+        </div>
+    <section class="filter-box">
+        <div class="box-left">
+            <h3>Show Products</h3>
+            <select id="selectCategory" onchange="filterCard()">
+                <option value="all">All</option>
+                <option value="laptop">Laptop</option>
+                <option value="phone">Phone</option>
+                <option value="furniture">Furniture</option>
+            </select>
+        </div>
+        <div class="box-left"> 
+            <h3>Price Range</h3>
+            <div>
+                <span>min</span><br><input class="new-func" type="range" min="0" max="50000" step="1000" onchange="showVal(this);"><i id="min" onchange="filterCard()">0</i><br>
+                <span>max</span><br><input class="new-func" type="range" min="0" max="50000" step="1000" onchange="showVal(this);"><i id="max" onchange="filterCard()">50000</i>
+                <button onclick="filterCard()">show</button>
+            </div>
+        </div>     
+        <div id="category" class="box-left">
+            <h3>All Category</h3>
+            <ul >
+              <li>Laptops</li>
+              <li>Iphone</li>
+              <li>Microsoft</li>
+              <li>Monitors</li>
+            </ul>
+        </div>
+        <div id="location" class="box-left">
+            <h3>Location</h3>
+            <ul>
+              <li>Chennai</li>
+              <li>Mumbai</li>
+              <li>Bangalore</li>
+              <li>Delhi</li>
+              <li>Kolkata</li>
+              <li>Gujarat</li>
+              <li>Hydrabad</li>
+            </ul>
+        </div>
+        
+        <div class="box-left">
+            <h3>By Condition</h3>
+            <input type = "checkbox">
+            <label>Brand New</label><br>
+            <input type = "checkbox">
+            <label>Almost New</label><br>
+            <input type = "checkbox">
+            <label>Gently New</label><br>
+            <input type = "checkbox">
+            <label>Havely New</label>
+        </div>
+        <div class="box-main">
+            <div class="box-head">
+                <div class="head-left">
+                  <b>Sort By</b>
+                  <select onchange="sortBy(this);">
+                      <option value="" disabled selected>&darr; &nbsp; &uarr;</option>
+                      <option value="up">Price &uarr;</option>
+                      <option value="down">Price &darr;</option>
+                  </select>
+                </div>
+                <div class="head-right">
+                    <b>Views</b>
+                    <b class="fa-solid fa-grip-vertical"></b>
+                    <b class="fa-solid fa-bars"></b>
+                </div>
+            </div>
+            <div class="box-content" id="append">
+            </div>
+
+        </div>
+        </div>
+    </section>
+    <footer>
+        <span>&copy;developed by <a href="https://www.linkedin.com/in/kalanithi-maran-p-94b79722b/" target="_blank">KALANITHIMARAN P</a></span>
+    </footer>
+</body>
